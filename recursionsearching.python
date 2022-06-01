@@ -1,0 +1,19 @@
+
+def search(arr, n, x):
+	if (arr[n-1] == x) :
+		return "Found"
+	backup = arr[n-1]
+	arr[n-1] = x
+	i = 0
+	while(i < n) :
+		if (arr[i] == x) :
+			arr[n-1] = backup
+			if (i < n-1):
+				return "Found"
+			return "Not Found"
+		i=i+1
+arr = [4, 6, 1, 5, 8]
+n = len(arr)
+x=int(input("Enter the element to be search:"))
+print (search(arr, n, x))
+
