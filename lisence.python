@@ -1,0 +1,45 @@
+import matplotlib.pyplot as plt
+import numpy as np
+algo1=[]
+algo2=[]
+
+def minimize1(L,n):
+    sum=0
+    L.sort()
+    for i in range(0,n):
+        sum += 100*(L[i]**(i+1))
+    return sum
+def minimize2(L,n):
+    sum=0
+    L.sort()
+    L.reverse()
+    for i in range(0,n):
+        sum += 100*(L[i]**(i+1))
+    return sum
+
+N=int(input("Enter the number of instances"))
+I=[]
+A1=[]
+A2=[]
+for i in range(1,N+1):
+    L=[]
+    n=4
+    print("Enter the rate of price growth:")
+    for m in range(1,n+1):
+        r=int(input())
+        L.append(r)
+    r1=minimize1(L,n)
+    A1.append(r1)
+    print(r1)
+    r2=minimize2(L,n)
+    A2.append(r2)
+    print(r2)
+    I.append(i)
+
+plt.plot(I,A1,color='red',label='algo1')
+plt.plot(I,A2,color='green',label='algo2')
+plt.xlabel('Input Instance')
+plt.ylabel('Total cost')
+plt.show()
+plt.grid()
+
