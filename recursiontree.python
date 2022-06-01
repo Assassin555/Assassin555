@@ -1,0 +1,14 @@
+def Guess(x,n,h):
+    if(n==1):
+        print("The height of tree is",h)
+        return 1
+    if((n%2)==0):
+       h+=1
+       return(Guess(2*x,int(n/2),h))
+    else:
+        h+=1
+        return(x+Guess(2*x,int(n/2),h))
+h=0
+x=int(input("Give the value for first Guess:"))
+n=int(input("Give the value for second Guess:"))
+print(Guess(x,n,h))
