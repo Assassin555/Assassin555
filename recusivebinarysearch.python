@@ -1,0 +1,32 @@
+def bin(x,L,h):
+    if(len(L)==0):
+        print("The number of element comparision is:",h)
+        return 0
+    n=len(L)
+    L1=L[:int(n/2)]
+    L2=L[int((n+1)/2):]
+    m=L[int(n/2)]
+    if(m==x):
+        print("The number of comparision is",h)
+        return m
+    else:
+        if(x<m):
+            h=h+1
+            return bin(x,L1,h)
+        else:
+            h=h+1
+            return bin(x,L2,h)
+h=0
+L=[]
+n=int(input("Enter the length of the list:"))
+for i in range(0,n):
+    num=int(input("Enter the number:"))
+    L.append(num)
+L.sort()
+print(L)
+x=int(input("Enter the number you want to search:"))
+y=bin(x,L,h)
+if(y==x):
+    print("Search succesful!the element is in the list:")
+else:
+    print("Search unsuccessful! the element is not in the list:")
