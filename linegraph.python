@@ -1,0 +1,28 @@
+import matplotlib.pyplot as plt
+import math
+import numpy as np
+n=int(input("Enter the num:"))
+x=np.array([i for i in range(1,n+1)],dtype=int)
+y=x
+b=np.array([i**2 for i in range(1,n+1)],dtype=int)
+c=np.array([i**3 for i in range(1,n+1)],dtype=int)
+d=np.log(x);
+e=y*d
+f=np.array([2**i for i in range(1,n+1)],dtype=int)
+g=np.array([math.factorial(i)for i in range(1,n+1)])
+
+plt.plot(x,y,color='r',marker='0',label='n')
+plt.plot(x,b,color='b',marker='v',label='n**2')
+plt.plot(x,c,color='g',marker='<',label='n**3')
+plt.plot(x,d,color='y',marker='>',label='log(n)')
+plt.plot(x,e,color='k',marker='5',label='nlog(n)')
+plt.plot(x,f,color='c',marker='8',label='2**n')
+plt.plot(x,g,color='m',marker='*',label='n!')
+
+plt.yscale('log')
+plt.title("Graph Plot")
+plt.xlabel("x-axis(n)")
+plt.ylabel("y-axis(log)")
+plt.legend()
+plt.grid()
+plt.show()
